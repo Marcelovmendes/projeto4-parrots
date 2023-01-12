@@ -67,3 +67,27 @@ body{
 .shadow{
     display: none;
 }
+
+@media (max-width: 935px) {
+
+    body{
+        height: 100%;
+    }
+    body .logo .panel-card h1 .card{
+        width: 100%;
+    }
+       
+    .logo{ 
+        border-radius: undefinedpx;
+        margin-top: 50px;
+    }
+    
+    .panel-card{
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    
+
+}
