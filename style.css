@@ -63,9 +63,12 @@ body{
   .card:hover .front-card {
     transform: rotateY(-180deg);
   }
+  .over .front-card {
+    transform: rotateY(-180deg);
+  }
 
-.shadow{
-    display: none;
+.over .back-card{
+    transform: rotateY(0deg);
 }
 
 @media (max-width: 935px) {
