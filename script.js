@@ -4,7 +4,7 @@ round =0;
 check=0;
 let firstcard;
 let secondcard;
-
+let c = 0
 const elementcard =[
     'assets/bobrossparrot.gif',
     'assets/bobrossparrot.gif',
@@ -38,6 +38,7 @@ while(checkcard()){
 }
 //função da destribuição
 createdeck();
+stopwatch();
 }
 question();
 
@@ -91,6 +92,8 @@ function turncard(card){ // vzcar
 
  }
 // se as duas não foram clicadas return
+// se a primeira carta for virada, ela permanece virada ate outra ser virada 
+ // se as duas forem iguais então o usuario acertou; remove o over 
  if(firstcard !== undefined && secondcard !== undefined){
     return;
  }
@@ -98,38 +101,37 @@ function turncard(card){ // vzcar
     card.classList.add('over');
     round++;//jogadas
 
-    // se a primeira carta for virada, ela permanece virada ate outra ser virada 
   if(firstcard === undefined){
     firstcard = card;
 
   }else{
    if (secondcard === undefined){
     secondcard = card; 
-
-    // se as duas forem iguais então o usuario acertou; remove o rover 
     if(firstcard.innerHTML == secondcard.innerHTML){
-       instacard();
-       check = check +1;
+       instacard(); // reseta as variaveis 
+       check = check +2;
 
         end();
     } else{
         setTimeout(firstcard.classList.remove('over'),secondcard.classList.remove('over'),1000);
+        instacard();
     } 
   }
 }  
 }
 }
 
-function full(){ // desvirar
-    firstcard= undefined;
-    secondcard= undefined;
-    firstcard.classList.remove('over')
-    secondcard.classList.remove('over');
-}
+
 
 function end(){
     let cardturn = document.querySelectorAll('.card');
     if(cardturn.innerHTML == check){
       alert(`Você ganhou em ${round} jogadas!`);
     }
-}
+
+    }
+    
+    function stopwatch(){
+        setInterval(c,1000)
+        c++;
+    }
