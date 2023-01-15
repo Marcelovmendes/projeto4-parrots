@@ -4,7 +4,7 @@ round =0;
 check=0;
 let firstcard;
 let secondcard;
-let c = 0
+let c = 0;
 const elementcard =[
     'assets/bobrossparrot.gif',
     'assets/bobrossparrot.gif',
@@ -24,7 +24,7 @@ const elementcard =[
  // verificar se o caracter é valido 
 function checkcard(){
 
-if(numcard %2 !== 0|| numcard < 4 || numcard >14 ||isNaN(numcard) ){
+if(numcard %2 !== 0|| numcard < 4 || numcard >14){
     return true;
     
 }else{
@@ -38,7 +38,7 @@ while(checkcard()){
 }
 //função da destribuição
 createdeck();
-stopwatch();
+
 }
 question();
 
@@ -113,8 +113,7 @@ function turncard(card){ // vzcar
 
         end();
     } else{
-        setTimeout(firstcard.classList.remove('over'),secondcard.classList.remove('over'),1000);
-        instacard();
+        setTimeout(firstcard.classList.remove('over'),secondcard.classList.remove('over'),instacard(),1000);
     } 
   }
 }  
@@ -122,16 +121,26 @@ function turncard(card){ // vzcar
 }
 
 
-
 function end(){
-    let cardturn = document.querySelectorAll('.card');
-    if(cardturn.innerHTML == check){
-      alert(`Você ganhou em ${round} jogadas!`);
+    if(numcard == check){
+      alert(` Você ganhou em ${round} jogadas!`);
     }
 
     }
-    
+    let idinterval;
     function stopwatch(){
-        setInterval(c,1000)
-        c++;
+
+       idinterval= setInterval(time(),1000);
+        
+    }
+    stopwatch();
+    function time(){
+    c++;
+    const cont = document.querySelector('.watch');
+    cont.innerHTML = c;
+    if(end() !== undefined){
+       
+       clearInterval(idinterval);
+    }
+  
     }
