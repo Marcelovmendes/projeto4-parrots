@@ -70,6 +70,12 @@ body{
 .over .back-card{
     transform: rotateY(0deg);
 }
+.back-card img{
+    height: 60px;
+    width: 60px;
+    border-radius: 0px;
+    
+}
 
 @media (max-width: 935px) {
 
